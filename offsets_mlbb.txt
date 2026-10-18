@@ -1,0 +1,71 @@
+# MLBB runtime offset configuration
+# Extracted from MLESP LATEST PROTECTED/Daemon/Daemon/jni/Server/Offsets.h
+# Source defaults are build-specific; verify against the exact game version.
+# Format: Key = hexadecimal_value
+# The daemon's current Offsets::loadFromFile() recognizes the keys below.
+
+# Module globals (libcsharp.so base + class-slot offset)
+Globals.gameInstanceO = 0x635b290
+Globals.gameInstance2O = 0x635b290
+Globals.main_camO = 0x635b620
+Globals.logicBattleMgrO = 0x635b5d8
+
+# Static fields
+StaticFields.BattleManager_Instance = 0x0
+StaticFields.LogicBattleManager_Instance = 0x10
+StaticFields.GameMethod_m_Camra = 0x8
+
+# Pointer / camera chain
+Statics.ClassToStaticFields = 0xa8
+Statics.CameraToInternal = 0x10
+Statics.InternalToViewMatrix = 0x5c
+
+# BattleManager
+BattleManager.m_LocalPlayerShow = 0x48
+BattleManager.m_ShowPlayers = 0x70
+BattleManager.m_ShowMonsters = 0x78
+
+# ShowEntity
+ShowEntity.m_iType = 0x78
+ShowEntity.m_bDeath = 0xc5
+ShowEntity.m_EntityCampType = 0xd0
+ShowEntity.m_ShowCoolDownComp = 0xf8
+ShowEntity.m_ID = 0x18c
+ShowEntity.m_Level = 0x190
+ShowEntity.m_Hp = 0x1a4
+ShowEntity.m_HpMax = 0x1a8
+ShowEntity.m_vCachePosition = 0x28c
+ShowEntity.m_bIsBot = 0x412
+ShowEntity.m_RoleName = 0x460
+
+# ShowPlayer
+ShowPlayer.m_KillWildTimes = 0xa4c
+# NOTE: m_HeroName = 0x8f0 is currently hardcoded in kmods.cpp and is NOT
+# registered in Offsets::offsetTable(), so the current loader will ignore it.
+# ShowPlayer.m_HeroName = 0x8f0
+
+# Cooldown data
+ShowCoolDownComp._dicCD = 0x18
+CoolDownData.uiCoolTime = 0x14
+CoolDownData.uiStartTime = 0x1c
+
+# LogicBattleManager
+LogicBattleManager.m_uiFrameTime = 0x13c
+
+# Non-offset IDs are compile-time constants in Offsets.h (not runtime offsets):
+# Ids.Retribution = 20020
+# Ids.Lord = 2002
+# Ids.Turtle = 2003
+# Ids.TurtleEvent = 2110
+# Ids.Serpent = 2005
+# Ids.Fiend = 2004
+# Ids.Crab = 2011
+# Ids.CrabAlt = 2013
+# Ids.SerpentKids = 2012
+# Ids.ScaledLizard = 2006
+# Ids.Crammer = 2008
+# Ids.CrammerAlt = 2059
+# Ids.Rockursa = 2009
+# Ids.Lithowanderer = 2056
+# Ids.LithowandererAlt = 2072
+# MonsterTypeId.Skip = 3
